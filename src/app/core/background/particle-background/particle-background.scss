@@ -1,0 +1,20 @@
+:host {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.nebula {
+  filter: saturate(105%) blur(0.2px);
+  opacity: 1;
+}
+.stars {
+  opacity: 0.9;
+}

@@ -1,0 +1,31 @@
+import { Directive, ElementRef, OnInit, OnDestroy, Renderer2 } from '@angular/core';
+
+@Directive({
+  selector: '[revealOnScroll]',
+  standalone: true
+})
+export class RevealOnScrollDirective implements OnInit, OnDestroy {
+  private observer?: IntersectionObserver;
+
+  constructor(private el: ElementRef, private r: Renderer2) {}
+
+  ngOnInit() {
+    this.r.setStyle(this.el.nativeElement, 'transform', 'translateY(16px)');
+    this.r.setStyle(this.el.nativeElement, 'opacity', '0');
+
+    this.observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          this.r.setStyle(this.el.nativeElement, 'transition', 'opacity .6s ease, transform .6s ease');
+          this.r.setStyle(this.el.nativeElement, 'opacity', '1');
+          this.r.setStyle(this.el.nativeElement, 'transform', 'translateY(0)');
+          this.observer?.unobserve(this.el.nativeElement);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    this.observer.observe(this.el.nativeElement);
+  }
+
+  ngOnDestroy() { this.observer?.disconnect(); }
+}

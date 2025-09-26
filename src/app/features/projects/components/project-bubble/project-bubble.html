@@ -1,0 +1,25 @@
+<a class="glass glow-hover card" [routerLink]="['/', project.slug]" role="button">
+  <div class="media">
+    <img
+      *ngIf="project.image"
+      [src]="project.image"
+      [alt]="project.title"
+      loading="lazy"
+      decoding="async"
+      width="1600" height="900"
+      (load)="loaded = true"
+      [class.loaded]="loaded">
+  </div>
+
+  <div class="body">
+    <div class="content">
+      <h3 class="title">{{ project.title }}</h3>
+      <p class="short">{{ project.short }}</p>
+      <div class="chips">
+        <span class="chip" *ngFor="let t of project.tech">{{ t }}</span>
+      </div>
+    </div>
+
+    <span class="link">View Project →</span>
+  </div>
+</a>

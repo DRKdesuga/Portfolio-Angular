@@ -1,0 +1,15 @@
+<section id="projects" class="container">
+  <h2 revealOnScroll>Featured Work</h2>
+  <p class="lead" revealOnScroll>
+    A collection of projects crafted with thoughtful design & development.
+  </p>
+
+  <div class="grid">
+    <app-project-bubble
+      *ngFor="let p of projects(); let i = index"
+      [project]="p"
+      [stagger]="i"
+      revealOnScroll>
+    </app-project-bubble>
+  </div>
+</section>

@@ -1,0 +1,55 @@
+<section class="detail" (click)="goBack()">
+  <div class="glass hero" (click)="$event.stopPropagation()" *ngIf="project as p; else notfound">
+    <div class="hero-grid">
+      <figure class="media">
+        <img *ngIf="p.image" [src]="p.image" [alt]="p.title" />
+        <figcaption class="sr-only">{{ p.title }}</figcaption>
+        <span class="media-overlay"></span>
+      </figure>
+
+      <div class="txt">
+        <div class="eyebrow">Case Study</div>
+        <h1 class="title">{{ p.title }}</h1>
+
+        <p class="lead">
+          {{ p.short }}
+        </p>
+
+        <h2 class="section">Overview</h2>
+        <p class="body">
+          {{ p.description }}
+        </p>
+
+        <ng-container *ngIf="highlights.length">
+          <h2 class="section">Highlights</h2>
+          <ul class="bullets">
+            <li *ngFor="let h of highlights">{{ h }}</li>
+          </ul>
+        </ng-container>
+
+        <h2 class="section">Tech Stack</h2>
+        <div class="chips">
+          <span class="chip" *ngFor="let t of p.tech">{{ t }}</span>
+        </div>
+
+        <div class="actions">
+          <a *ngFor="let l of p.links" class="btn primary" [href]="l.url" target="_blank" rel="noopener">
+            {{ l.label }}
+          </a>
+          <button class="btn ghost" type="button" (click)="goBack()">← Back</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #notfound>
+  <section class="detail">
+    <div class="glass hero" (click)="$event.stopPropagation()">
+      <h2 class="title">Project not found</h2>
+      <div class="actions">
+        <a routerLink="/" class="btn ghost">← Back</a>
+      </div>
+    </div>
+  </section>
+</ng-template>

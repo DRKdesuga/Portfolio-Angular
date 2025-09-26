@@ -1,0 +1,51 @@
+.container {
+  max-width: 1200px;
+  margin: 100px auto;
+  padding: 0 24px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+
+
+  scroll-margin-top: 100px;
+}
+
+
+h2 {
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  margin-bottom: 12px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #fff 0%, #aaa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.lead {
+  color: var(--text-2);
+  margin: 0 auto 40px;
+  font-size: 1.1rem;
+  max-width: 780px;
+  text-align: center;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+  align-items: stretch;
+}
+
+
+.grid > app-project-bubble {
+  height: 100%;
+}
+
+
+@media (max-width: 600px) {
+  .container { margin: 80px auto; }
+  .grid { grid-template-columns: 1fr; gap: 16px; }
+}

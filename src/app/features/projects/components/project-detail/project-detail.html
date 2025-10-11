@@ -11,14 +11,10 @@
         <div class="eyebrow">Case Study</div>
         <h1 class="title">{{ p.title }}</h1>
 
-        <p class="lead">
-          {{ p.short }}
-        </p>
+        <p class="lead">{{ p.short }}</p>
 
         <h2 class="section">Overview</h2>
-        <p class="body">
-          {{ p.description }}
-        </p>
+        <p class="body">{{ p.description }}</p>
 
         <ng-container *ngIf="highlights.length">
           <h2 class="section">Highlights</h2>
@@ -36,12 +32,41 @@
           <a *ngFor="let l of p.links" class="btn primary" [href]="l.url" target="_blank" rel="noopener">
             {{ l.label }}
           </a>
+
+          <button
+            *ngIf="p.demoMp4 || p.demoWebm"
+            type="button"
+            class="btn outline demo-btn"
+            (click)="openDemo($event)"
+            [class.pulse]="demoPulse">
+            See demo
+          </button>
+
           <button class="btn ghost" type="button" (click)="goBack()">← Back</button>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<div class="demo-backdrop" *ngIf="demoOpen" (click)="closeDemo()" tabindex="-1">
+  <div class="demo-dialog" (click)="$event.stopPropagation()">
+    <button class="close" (click)="closeDemo()" aria-label="Close">×</button>
+
+    <video
+      #player
+      class="demo-video"
+      [attr.poster]="project?.demoPoster || null"
+      controls
+      autoplay
+      playsinline
+      muted>
+      <source *ngIf="project?.demoMp4"  [src]="project?.demoMp4"  type="video/mp4" />
+      <source *ngIf="project?.demoWebm" [src]="project?.demoWebm" type="video/webm" />
+      Sorry, your browser can’t play this video.
+    </video>
+  </div>
+</div>
 
 <ng-template #notfound>
   <section class="detail">

@@ -1,24 +1,6 @@
 import { Project } from './project.model';
 
 export const PROJECTS: Project[] = [
-  // 1) PING
-  {
-    slug: 'ping',
-    title: 'PING',
-    short: 'Quarkus + React workspace manager with JWT, projects, folders & files.',
-    image: 'assets/img/ping-banner.png',
-    tech: [
-      'Java 21', 'Quarkus 3', 'REST', 'JWT (RS256)', 'PostgreSQL',
-      'Hibernate', 'OpenAPI 3', 'Maven', 'React', 'Vite'
-    ],
-    description: `PING is a lightweight workspace manager. The backend (Quarkus 3 / Java 21) exposes a clean REST API
-for authentication (JWT with RSA dev keys) and resource management: projects, folders and files (list, upload, move, delete with multipart).
-Data is persisted in PostgreSQL with a simple domain model; the API is fully described with OpenAPI 3 for easy client generation.
-A Vite/React frontend provides a minimal UI to browse workspaces and interact with the endpoints.
-Developer experience focuses on rapid setup, hot reload and straightforward local dev.`,
-    links: [{ label: 'GitHub', url: 'https://github.com/DRKdesuga' }]
-  },
-
   // 2) Tiger Compiler
   {
     slug: 'tiger',
@@ -36,6 +18,23 @@ turning the project into a practical playground for compiler design.`,
     links: [{ label: 'GitHub', url: 'https://github.com/DRKdesuga' }]
   },
 
+  {
+    slug: 'ping',
+    title: 'PING',
+    short: 'Quarkus + React workspace manager with JWT, projects, folders & files.',
+    image: 'assets/img/ping-banner.png',
+    tech: [
+      'Java 21', 'Quarkus 3', 'REST', 'JWT (RS256)', 'PostgreSQL',
+      'Hibernate', 'OpenAPI 3', 'Maven', 'React', 'Vite'
+    ],
+    description: `PING is a lightweight workspace manager. The backend (Quarkus 3 / Java 21) exposes a clean REST API
+for authentication (JWT with RSA dev keys) and resource management: projects, folders and files (list, upload, move, delete with multipart).
+Data is persisted in PostgreSQL with a simple domain model; the API is fully described with OpenAPI 3 for easy client generation.
+A Vite/React frontend provides a minimal UI to browse workspaces and interact with the endpoints.
+Developer experience focuses on rapid setup, hot reload and straightforward local dev.`,
+    links: [{ label: 'GitHub', url: 'https://github.com/DRKdesuga' }],
+    demoMp4: 'assets/demos/ping.mp4'
+  },
   //AURA
 
   {
@@ -95,9 +94,40 @@ It supports simple/compound command execution, redirections (>, >>, <, 2>), pipe
 logical operators (&&, ||), sub-shells via parentheses, control structures (if / while / for / case),
 environment variable management and core built-ins (cd, exit, export, unset, echo, …).
 The build system relies on Autotools with targets for testing and optional installation.`,
-    links: [{ label: 'GitHub', url: 'https://github.com/DRKdesuga' }]
+    links: [{ label: 'GitHub', url: 'https://github.com/DRKdesuga' }],
+    demoMp4: 'assets/demos/42sh.mp4'
   },
 
+  {
+    slug: 'nxus',
+    title: 'Nexus',
+    short: 'Full-Stack Assistant — Spring Boot 3.2 & Angular 17 integration for Spotify, GPT, and NLP.',
+    image: 'assets/img/nxus-banner.png',
+    tech: [
+      'Java 21', 'Spring Boot 3.2', 'Spring Web & WebFlux (WebClient)',
+      'Angular 17', 'TypeScript', 'OAuth 2.0 (Authorization Code)',
+      'OpenAI API', 'DJL (PyTorch Embeddings)',
+      'Swagger / OpenAPI', 'Lombok', 'Docker Compose', 'Maven'
+    ],
+    description: `Nexus is a full-stack AI assistant built with Spring Boot (backend) and Angular (frontend).
+It connects multiple intelligent services under a unified interface:
+
+Spotify Integration — OAuth login, track search, playback by URI, playlist launch by name, and controls for play, pause, next, and previous.
+
+OpenAI GPT — A REST endpoint forwarding user prompts to OpenAI’s Chat Completions API for dynamic assistant responses.
+
+Natural Language Processing (NLP) — A local intent detection and slot-filling engine using DJL (Deep Java Library) embeddings with cosine similarity and regex slot extractors.
+
+The backend follows a clean layered architecture (controller → service → dto/errors) and is documented with Swagger/OpenAPI.
+Docker Compose enables local deployment of the entire stack (backend + frontend).
+The Angular frontend provides a modern UI for interacting with Spotify, GPT, and NLP modules in real time.
+
+Security note: environment variables should replace plain API keys in the configuration file.`,
+    links: [
+      { label: 'GitHub – NX-US', url: 'https://github.com/DRKdesuga/NX-US' }
+    ],
+    demoMp4: 'assets/demos/nexus.mp4'
+  },
   // 4) JWS
   {
     slug: 'jws',
@@ -150,38 +180,6 @@ A small, pragmatic tool to keep aliases tidy and versionable across environments
   },
 
   // 6) Nexus Backend
-  {
-    slug: 'nxus',
-    title: 'Nexus',
-    short: 'Full-Stack Assistant — Spring Boot 3.2 & Angular 17 integration for Spotify, GPT, and NLP.',
-    image: 'assets/img/nxus-banner.png',
-    tech: [
-      'Java 21', 'Spring Boot 3.2', 'Spring Web & WebFlux (WebClient)',
-      'Angular 17', 'TypeScript', 'OAuth 2.0 (Authorization Code)',
-      'OpenAI API', 'DJL (PyTorch Embeddings)',
-      'Swagger / OpenAPI', 'Lombok', 'Docker Compose', 'Maven'
-    ],
-    description: `Nexus is a full-stack AI assistant built with Spring Boot (backend) and Angular (frontend).
-It connects multiple intelligent services under a unified interface:
-
-Spotify Integration — OAuth login, track search, playback by URI, playlist launch by name, and controls for play, pause, next, and previous.
-
-OpenAI GPT — A REST endpoint forwarding user prompts to OpenAI’s Chat Completions API for dynamic assistant responses.
-
-Natural Language Processing (NLP) — A local intent detection and slot-filling engine using DJL (Deep Java Library) embeddings with cosine similarity and regex slot extractors.
-
-The backend follows a clean layered architecture (controller → service → dto/errors) and is documented with Swagger/OpenAPI.
-Docker Compose enables local deployment of the entire stack (backend + frontend).
-The Angular frontend provides a modern UI for interacting with Spotify, GPT, and NLP modules in real time.
-
-Security note: environment variables should replace plain API keys in the configuration file.`,
-    links: [
-      { label: 'GitHub – NX-US', url: 'https://github.com/DRKdesuga/NX-US' }
-    ],
-    demoMp4: 'assets/demos/nexus.mp4'
-  }
-
-,
 
   // 7) My-BitTorrent
   {
@@ -248,7 +246,8 @@ The allocator handles multiple non-contiguous memory pages, aligns allocations o
 Memory blocks are managed through internal metadata structures for size and availability tracking.
 Testing and debugging are done via LD_PRELOAD, allowing user programs to run transparently with the custom allocator.
 The Makefile includes make library to build the shared object and make clean to remove all generated files.`,
-    links: [{ label: 'GitHub', url: 'https://github.com/DRKdesuga' }]
+    links: [{ label: 'GitHub', url: 'https://github.com/DRKdesuga' }],
+    demoMp4: 'assets/demos/malloc.mp4'
   },
 
 ];
